@@ -1417,6 +1417,9 @@ struct tcp_congestion_ops {
 	 */
 	u32 (*tso_segs)(struct sock *sk, u32 mss_now);
 
+	/* react to a specific lost skb (optional) */
+	void (*skb_marked_lost)(struct sock *sk, const struct sk_buff *skb);
+
 	/* new value of cwnd after loss (required) */
 	u32  (*undo_cwnd)(struct sock *sk);
 	/* returns the multiplier used in tcp_sndbuf_expand (optional) */
