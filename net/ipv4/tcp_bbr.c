@@ -367,7 +367,9 @@ static void bbr_check_probe_rtt_done(struct sock *sk);
  */
 static bool bbr_can_use_ecn(const struct sock *sk)
 {
-	return (tcp_sk(sk)->ecn_flags & TCP_ECN_OK) &&
+	const struct tcp_sock *tp = tcp_sk(sk);
+
+	return tcp_ecn_mode_any(tp) &&
 	       (tcp_sk(sk)->ecn_flags & TCP_ECN_LOW);
 }
 
@@ -514,7 +516,7 @@ static u32 bbr_tso_segs_goal(struct sock *sk)
 {
 	struct tcp_sock *tp = tcp_sk(sk);
 
-	return  bbr_tso_segs_generic(sk, tp->mss_cache, GSO_LEGACY_MAX_SIZE);
+	return bbr_tso_segs_generic(sk, tp->mss_cache, GSO_LEGACY_MAX_SIZE);
 }
 
 /* Save "last known good" cwnd so we can restore it after losses or PROBE_RTT */

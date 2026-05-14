@@ -1460,7 +1460,7 @@ static void tcp_update_skb_after_send(struct sock *sk, struct sk_buff *skb,
 	list_move_tail(&skb->tcp_tsorted_anchor, &tp->tsorted_sent_queue);
 }
 
-void tcp_set_tx_in_flight(struct sock *sk, struct sk_buff *skb)
+static void tcp_set_tx_in_flight(struct sock *sk, struct sk_buff *skb)
 {
 	struct tcp_sock *tp = tcp_sk(sk);
 	u32 in_flight;
