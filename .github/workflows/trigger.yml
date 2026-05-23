@@ -1,19 +1,19 @@
-name: Stable Kernel CI
+name: Experimental Kernel CI
 
 on:
   push:
     tags:
-      - 'linux-wsl-stable-7.0.[0-9]+'
+      - 'linux-wsl-exp-[0-9]+-7.0.[0-9]+'
   pull_request:
     branches:
-      - 'wsl-7.0-rolling'
+      - 'wsl-7.0-exp'
 
-run-name: Stable Release Build ${{ github.ref_name }}
+run-name: Experimental Build ${{ github.ref_name }}
 
 jobs:
   call-core-workflow:
-    name: Stable Kernel Build
-    uses: Nevuly/WSL2-Linux-Kernel-Rolling/.github/workflows/build.yml@master
+    name: Experimental Kernel Build
+    uses: Nevuly/WSL2-Linux-Kernel-Rolling-EXP/.github/workflows/build.yml@master
     with:
       tag_name: ${{ github.ref_name }}
       build_type: current
