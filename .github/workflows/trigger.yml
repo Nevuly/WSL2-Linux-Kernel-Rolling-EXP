@@ -1,19 +1,19 @@
-name: LTS Kernel CI
+name: Experimental Kernel CI
 
 on:
   push:
     tags:
-      - 'linux-wsl-lts-6.18.[0-9]+'
+      - 'linux-wsl-exp-[0-9]+-6.18.[0-9]+'
     pull_request:
       branches:
-        - 'wsl-6.18-lts'
+        - 'wsl-6.18-exp'
 
-run-name: LTS Release Build ${{ github.ref_name }}
+run-name: Experimental Build ${{ github.ref_name }}
 
 jobs:
   call-core-workflow:
-    name: LTS Kernel Build
-    uses: Nevuly/WSL2-Linux-Kernel-Rolling-LTS/.github/workflows/build.yml@master
+    name: Experimental Kernel Build
+    uses: Nevuly/WSL2-Linux-Kernel-Rolling-EXP/.github/workflows/build.yml@master
     with:
       tag_name: ${{ github.ref_name }}
       build_type: current
