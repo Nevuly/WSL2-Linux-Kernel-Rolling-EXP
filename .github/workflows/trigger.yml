@@ -1,0 +1,23 @@
+name: Experimental Kernel CI
+
+on:
+  push:
+    tags:
+      - 'linux-wsl-exp-7.2.[0-9]+-rc[0-9]+'
+  pull_request:
+    branches:
+      - 'wsl-7.2-exp'
+
+run-name: Experimental Build ${{ github.ref_name }}
+
+jobs:
+  call-core-workflow:
+    name: Experimental Kernel Build
+    uses: Nevuly/WSL2-Linux-Kernel-Rolling-EXP/.github/workflows/build.yml@master
+    with:
+      tag_name: ${{ github.ref_name }}
+      build_type: current
+      build_rt: true
+      build_zfs: false
+      is_release: ${{ github.event_name != 'pull_request' }}
+    secrets: inherit
