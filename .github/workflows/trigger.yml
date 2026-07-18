@@ -13,10 +13,10 @@ run-name: Experimental Build ${{ github.ref_name }}
 jobs:
   call-core-workflow:
     name: Experimental Kernel Build
-    uses: Nevuly/WSL2-Linux-Kernel-Rolling-EXP/.github/workflows/build.yml@master
+    uses: Nevuly/excavator/.github/workflows/excavator.yml@master
     with:
       tag_name: ${{ github.ref_name }}
-      build_type: current
+      build_type: exp-rc
       build_rt: true
       build_zfs: false
       is_release: ${{ github.event_name != 'pull_request' }}
