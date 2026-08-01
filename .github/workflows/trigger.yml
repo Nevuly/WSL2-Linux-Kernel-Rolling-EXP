@@ -1,22 +1,22 @@
-name: Stable Kernel CI
+name: Experimental Kernel CI
 
 on:
   push:
     tags:
-      - 'linux-wsl-stable-7.1.[0-9]+'
+      - 'linux-wsl-exp-[0-9]+-7.1.[0-9]+'
   pull_request:
     branches:
-      - 'wsl-7.1-rolling'
+      - 'wsl-7.1-exp'
 
-run-name: Stable Release Build ${{ github.ref_name }}
+run-name: Experimental Build ${{ github.ref_name }}
 
 jobs:
   call-core-workflow:
-    name: Stable Kernel Build
+    name: Experimental Kernel Build
     uses: Nevuly/excavator/.github/workflows/excavator.yml@master
     with:
       tag_name: ${{ github.ref_name }}
-      build_type: stable
+      build_type: exp
       build_rt: true
       build_zfs: true
       is_release: ${{ github.event_name != 'pull_request' }}
