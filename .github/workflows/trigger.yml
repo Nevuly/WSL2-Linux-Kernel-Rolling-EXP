@@ -13,7 +13,7 @@ run-name: Experimental Build ${{ github.ref_name }}
 jobs:
   call-core-workflow:
     name: Experimental Kernel Build
-    uses: Nevuly/excavator/.github/workflows/excavator.yml@master
+    uses: Nevuly/excavator/.github/workflows/excavator.yml@exp
     with:
       tag_name: ${{ github.ref_name }}
       build_type: exp
