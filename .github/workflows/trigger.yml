@@ -3,7 +3,7 @@ name: Experimental Kernel CI
 on:
   push:
     tags:
-      - 'linux-wsl-exp-[0-9]+-7.3.[0-9]+'
+      - 'linux-wsl-exp-7.3.[0-9]+.[0-9]+'
   pull_request:
     branches:
       - 'wsl-7.3-exp'
