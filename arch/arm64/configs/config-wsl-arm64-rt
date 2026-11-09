@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/arm64 7.4.0-rc1 Kernel Configuration
+# Linux/arm64 7.4.0-rc2 Kernel Configuration
 #
 CONFIG_CC_VERSION_TEXT="aarch64-linux-gnu-gcc (GCC) 16.2.0"
 CONFIG_CC_IS_GCC=y
@@ -1998,6 +1998,7 @@ CONFIG_RFKILL_GPIO=m
 CONFIG_NET_9P=y
 CONFIG_NET_9P_FD=y
 CONFIG_NET_9P_VIRTIO=y
+# CONFIG_NET_9P_VSOCK is not set
 # CONFIG_NET_9P_USBG is not set
 # CONFIG_NET_9P_DEBUG is not set
 CONFIG_CEPH_LIB=m
